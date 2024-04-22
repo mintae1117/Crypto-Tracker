@@ -23,6 +23,7 @@ const Container = styled.div`
   padding: 0px 20px;
   max-width: 480px;
   margin: 0 auto;
+  position: relative;
 `;
 
 const Header = styled.header`
@@ -76,6 +77,15 @@ const Tab = styled.span<{ isActive: boolean }>`
     display: block;
     padding: 7px 0px;
   }
+`;
+
+const ToggleBtn = styled.button`
+  position: absolute;
+  right: 0;
+`;
+
+const HomeBtn = styled.button`
+  position: absolute;
 `;
 
 
@@ -159,8 +169,8 @@ function Coin() {
   const loading = infoLoading || tickersLoading;
   return (
       <Container>
-        <button style={{marginTop:"10px"}} onClick={() => setterFn((e: boolean) => !e)}>{isDarkValue === true ? "Light Mode" : "Dark mode"}</button>
-        <button style={{marginTop:"10px"}}><Link to={`/`}>home</Link></button>
+        <ToggleBtn style={{marginTop:"10px"}} onClick={() => setterFn((e: boolean) => !e)}>{isDarkValue === true ? "Light Mode" : "Dark mode"}</ToggleBtn>
+        <HomeBtn style={{marginTop:"10px"}}><Link to={`/`}>home</Link></HomeBtn>
         <Header>
             <Title>
                 {state?.name ? state.name : loading ? "Loading..." : infoData?.name}

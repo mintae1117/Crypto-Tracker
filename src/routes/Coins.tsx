@@ -9,6 +9,7 @@ const Container = styled.div`
   padding: 0px 20px;
   max-width: 480px;
   margin: 0 auto;
+  position: relative;
 `;
 
 const Header = styled.header`
@@ -55,6 +56,11 @@ const Img = styled.img`
     margin-right: 10px;
 `;
 
+const ToggleBtn = styled.button`
+  position: absolute;
+  right: 0;
+`;
+
 
 interface ICoin {
   id: string;
@@ -73,9 +79,9 @@ function Coins() {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
   return (
     <Container>
-        <button style={{marginTop:"10px"}} onClick={() => setterFn((e: boolean) => !e)}>{isDarkValue === true ? "Light Mode" : "Dark mode"}</button>
+        <ToggleBtn style={{marginTop:"10px"}} onClick={() => setterFn((e: boolean) => !e)}>{isDarkValue === true ? "Light Mode" : "Dark mode"}</ToggleBtn>
         <Header>
-        <Title>코인</Title>
+        <Title>Crypto Tracker</Title>
         </Header>
         {isLoading ? (
         <Loader>Now Loading...</Loader>
@@ -84,7 +90,7 @@ function Coins() {
         {data?.slice(0, 50).map((coin) => (
         <Coin key={coin.id}>
             <Link to={`/${coin.id}`} state={coin}>
-                <Img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} />
+                <Img src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`} />
                 {coin.name} &rarr;
                 </Link>
         </Coin>

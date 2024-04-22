@@ -13,7 +13,7 @@ React를 공부하면서 진행한 간단한 크립토 트래커 앱입니다.<b
 
 ## 💻 사용 기술.
 
-- `React.js`, `Typescript`, `Javascript`, `node.js`
+- `React.js`, `Typescript`, `Javascript`, `React-query`
 - `Recoil`, `React-Router-Dom`, `Styled-components`
 - Deploy : `Github-gh-pages`
 
